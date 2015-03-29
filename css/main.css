@@ -1,0 +1,109 @@
+/*@import url(//fonts.googleapis.com/css?family=Open+Sans:400);
+@import url(//fonts.googleapis.com/css?family=Open+Sans:300);
+@import url(//fonts.googleapis.com/css?family=Open+Sans:600);
+@import url(//fonts.googleapis.com/css?family=Open+Sans:700);
+@import url(//fonts.googleapis.com/css?family=Open+Sans:300italic);
+@import url(//fonts.googleapis.com/css?family=Roboto+Condensed:400);
+@import url(//fonts.googleapis.com/css?family=Roboto+Condensed:300);*/
+body {
+    font: 300 14px/20px 'Open Sans', sans-serif;
+    background-color: #FAFAFA;
+}
+section {
+    min-height: 600px;
+}
+a {
+    color: #b6d83a;
+}
+a:hover {
+    color: #7b9b09;
+}
+h1 {
+    color: #7b9b09;
+}
+.bold {
+    font-weight: bold;
+}
+.navbar {
+    background: #000;
+    border: 0px none;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.15);
+    margin-bottom: 0px;
+    border: 0px none;
+    border-radius:0px;
+}
+.navbar .navbar-nav>li>a {
+    text-transform: uppercase;
+    font-weight: bold;
+    color: #e6e5e5;
+}
+.navbar .navbar-nav>li.active>a,
+.navbar .navbar-nav>li:hover>a,
+.navbar .navbar-nav>li>a:hover {
+    background-color: #8baf08;
+    color: #FFF;
+}
+.navbar .navbar-toggle .icon-bar {
+    background-color: #7b9b09;
+}
+.header {
+    position: relative;
+    padding: 5px;
+    margin-bottom: 20px;
+    background-color: #EDF4D2;
+    color: #FFF;
+    border-bottom: 1px solid #b6d83a;
+}
+    .header h1 {
+        font-weight: bold;
+    }
+    .header .sub-header {
+        color: #7b9b09;
+    }
+f.body {
+    color: #555;
+}
+.body h3 {
+    margin-bottom: 20px;
+    color: #585858;
+    font-size: 28px;
+    text-transform: none;
+    background: url("../images/heading-bg.png") 50% 50% repeat-x;
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.body h3 span {
+    background: #fff;
+    display: inline-block;
+    height: 100%;
+    padding: 0 25px;
+}
+.body .box {
+    margin-top: 50px;
+}
+.body .box .icon-div {
+    background-color: #FF8B00;
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+    color: #FAFAFA;
+    display: inline-block;
+    padding: 30px;
+}
+.body .box h5.icon-head {
+    font-weight: bold;
+    color: #555;
+    margin: 20px;
+}
+.body .box p {
+    color: #555;
+    margin: 20px;
+}
+.footer {
+    background: #EDF4D2;
+    padding: 20px 0;
+    margin-top: 30px;
+    color: #7b9b09;
+    border-top: 1px solid #b6d83a;
+}

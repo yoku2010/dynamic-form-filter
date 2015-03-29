@@ -1,0 +1,89 @@
+/****** start: filter form *****/
+.form-head {
+    background-color: #8baf08;
+    padding: 10px;
+    text-align: right;
+    border: 1px solid #7b9b09;
+    border-radius: 5px 5px 0 0;
+}
+
+.form-row {
+    overflow: hidden;
+    padding: 5px 10px 10px;
+    border: 1px solid #CCC;
+    border-top: 0px none;
+}
+
+.form-row:nth-child(odd) {
+    background-color: #EAEAEA;
+}
+
+.form-row:nth-child(even) {
+    background-color: #DDD;
+}
+.form-msg {
+    background-color: #EDF4D2;
+    border: 1px solid #acbf67;
+    border-top: 0px none;
+}
+.form-msg p {
+    text-align: center;
+    color: #7b9b09;
+    padding: 5px;
+    margin: 0px;
+    font-size: 11px;
+}
+.form-s-row {
+    padding-top: 5px;
+}
+
+.form-s-row input, .form-s-row textarea, .form-s-row select {
+    margin-right: 5px;
+}
+
+.form-s-row a {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.form-s-row .glyphicon {
+    margin-left: 5px;
+    font-size: 21px;
+}
+
+.form-s-row .glyphicon-plus-sign{
+    color: #3e8f3e;
+}
+
+.form-s-row .glyphicon-minus-sign{
+    color: #d9534f;
+}
+
+.form-control, input[type='text'], input[type='email'], input[type='number'], input[type='password'], input[type=file], textarea, select {
+    border: 1px solid #CCC;
+    border-bottom: 3px solid #CCC;
+    padding: 15px;
+    height: 54px!important;
+    box-shadow: none;
+    -moz-box-shadow: none;
+    -webkit-box-shadow: none;
+    width: auto;
+    display: inline;
+    vertical-align: middle;
+}
+label.form-control {
+    padding: 18px 10px;
+    font-weight: normal;
+    margin-right: 5px;
+    background-color: #F0F0F0;
+    color: #777;
+}
+label.form-control input {
+    margin-left: 5px;
+    margin-right: 0px;
+}
+p.form-no-elem {
+    color: #888;
+    margin: 0px;
+}
+/****** end: filter form *****/
