@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Dynamic Template</title>
+        <title>Dynamic Form Filter</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.min.css">
         <link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-theme.min.css">
-        <link rel="stylesheet" type="text/css" media="all" href="css/jquery.bootstrap.message.css">
-        <link rel="stylesheet" type="text/css" media="all" href="css/font-awesome.min.css">
         <link rel="stylesheet" type="text/css" media="all" href="css/main.css">
         <link rel="icon" href="img/favicon.ico" type="image/icon" sizes="16x16">
         <script type="text/javascript" src="js/libs/jquery-1.11.2.min.js"></script>
@@ -27,7 +25,8 @@
                                         <span class="icon-bar orange"></span>
                                     </button>
                                     <a class="navbar-brand" href="#">
-                                        <i class="fa fa-shield"></i> <span>bluejson</span></a>
+                                        <span class="glyphicon glyphicon-grain"></span> <span>bluejson</span>
+                                    </a>
                                 </div>
                                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-9" nav-collapse="">
                                 <ul class="nav navbar-nav">
@@ -48,10 +47,10 @@
                         <div class="col-md-12">
                             <div class="row">
                                 <div class="col-md-12">
-                                    <h1>Dynamic Template</h1>
+                                    <h1>Dynamic Form Filter</h1>
                                 </div>
                                 <div class="col-md-12">
-                                    <p class="sub-header">To create a dynamic page for your website. You can define multiple themes for single page only.</p>
+                                    <p class="sub-header">Plugin to create dynamic form elements in rows.</p>
                                 </div>
                             </div>
                         </div>
@@ -60,7 +59,220 @@
             </div>
             <div class="body">
                 <div class="container">
-                    <h2>Coming Soon...</h2>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4><span class="glyphicon glyphicon-share-alt"></span> Description</h4>
+                            <p>This jQuery plugin creates a dynamic form. Form elements declare by user as per the need.. Currently this is available for all type of input elements, select and teaxarea.</p>
+                            <code>Current version: 1.0.1</code>
+                            <p>Download this plugin and use it to create dynamic form elements.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4><span class="glyphicon glyphicon-share-alt"></span> Features</h4>
+                            <ul>
+                                <li>Fully customized</li>
+                                <li>Responsive</li>
+                                <li>Tested: jQuery 1.11.x in Firefox, Safari, Chrome, Internet Explorer 9, 10,11, Opera</li>
+                                <li>Lightweight: 7B of JavaScript (less than 3KBs gzipped).</li>
+                                <li>Define Limits of row and dynamic messages.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4><span class="glyphicon glyphicon-share-alt"></span> Instructions &amp; Help</h4>
+                            <p>
+                            First read usage of plugin (see below). If you found any issue or want any help submit it at <a class="user-mention" href="https://github.com/yoku2010/dynamic-form-filter">GitHub</a> or email me <a class="user-mention" href="mailto:yoku2010@gmail.com">yoku2010@gmail.com</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4><span class="glyphicon glyphicon-share-alt"></span> Download</h4>
+                            <p>
+                                <a class="btn btn-default" href="https://github.com/yoku2010/dynamic-form-filter/">View Project</a>
+                                <a class="btn btn-default" href="https://github.com/yoku2010/dynamic-form-filter/zipball/master">.zip file</a>
+                                <a class="btn btn-default" href="https://github.com/yoku2010/dynamic-form-filter/tarball/master">.tar.gz file</a>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4><span class="glyphicon glyphicon-share-alt"></span> Installation</h4>
+                            <p>
+                                After plugin downloading. Import these js and css file into your page and call plugin to create dynamic form (see usage).
+                            </p>
+                            <pre>
+&lt;!-- CSS files--&gt;
+&lt;link rel="stylesheet" type="text/css" media="all" href="css/bootstrap.min.css"&gt;
+&lt;link rel="stylesheet" type="text/css" media="all" href="css/bootstrap-theme.min.css"&gt;
+&lt;link rel="stylesheet" type="text/css" media="all" href="css/form-filter.css"&gt;
+
+&lt;!-- JS files--&gt;
+&lt;script type="text/javascript" src="js/libs/jquery-1.11.1.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/libs/bootstrap.min.js"&gt;&lt;/script&gt;
+&lt;script type="text/javascript" src="js/libs/form-filter.js"&gt;&lt;/script&gt;</pre>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4><span class="glyphicon glyphicon-share-alt"></span> Usage</h4>
+                            <p>jQuery Dynamic Form Filter Plugin accepts setting (Json Object) to behave differently, It can be assigned to any HTML element (preferred element is div) or create new element.</p>
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <pre>
+// Format:
+$(selector).filterForm({key:value, key:value, key:value});</pre>
+                                </div>
+                            </div>
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <pre>
+// Examples:
+$('#form_filter').filterForm({
+    btnName: 'Add Filter',
+    helpBox: true,
+    helpMsg: 'Click on "Add Filter" to add elements in row.',
+    noElemMsg: 'No element details.',
+    enableRowLevelAddition: true,
+    rowElems: [[
+            {
+                tag: 'input',
+                type: 'text',
+                'name': 'first_name',
+                cl: null,
+                placeholder: 'First Name'
+            },
+            {
+                tag: 'input',
+                type: 'text',
+                'name': 'last_name',
+                cl: null,
+                placeholder: 'Last Name'
+            },
+            {
+                tag: 'input',
+                type: 'checkbox',
+                'name': 'is_passport',
+                cl: null,
+                placeholder: 'Do you have passport?'
+            },
+            {
+                tag: 'textarea',
+                'name': 'address',
+                cl: null,
+                placeholder: 'Address'
+            },
+            {
+                tag: 'select',
+                opts: [
+                    {
+                        text: '- Choose Country -'
+                    },
+                    {
+                        text: 'India',
+                        value: 'IN'
+                    },
+                    {
+                        text: 'United States of America',
+                        value: 'USA'
+                    },
+                    {
+                        text: 'New Zealand',
+                        value: 'NZ'
+                    }
+                ],
+                'name': 'value',
+                cl: null,
+                placeholder: 'Value'
+            }
+        ]],
+    rowLimit: 2,
+    subRowLimit: 4
+});
+</pre>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4><span class="glyphicon glyphicon-share-alt"></span> Demo</h4>
+                            <p><a href="index.html">Click Here</a> to see demos of Dynamic Form Filter plugin.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <h4><span class="glyphicon glyphicon-share-alt"></span> Settings</h4>
+                            <table class="table table-condensed table-striped table-hover table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th class="pro">Property</th>
+                                        <th>Default</th>
+                                        <th>Description</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td><em>btnName</em></td>
+                                        <td>Add Filter</td>
+                                        <td>To define name of the button.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><em>helpBox</em></td>
+                                        <td>true</td>
+                                        <td>true will show help box otherwise i will hide that box.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><em>helpMsg</em></td>
+                                        <td>Click on "Add Filter" to add elements in row</td>
+                                        <td>To define help message in help box</td>
+                                    </tr>
+                                    <tr>
+                                        <td><em>noElemMsg</em></td>
+                                        <td>No element details.</td>
+                                        <td>This message will display only in one case If developer didn't define any element in the form</td>
+                                    </tr>
+                                    <tr>
+                                        <td><em>enableRowLevelAddition</em></td>
+                                        <td>true</td>
+                                        <td>true value allows row level form element addition.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><em>rowElems</em></td>
+                                        <td>[{<i>element json</i>}, {<i>element json</i>}]</td>
+                                        <td>It is list of element<pre>
+{
+    tag: '<i>"input|textarea|select"</i>',
+    type: 'type of input tag (no need in textarea and select)',
+    name: 'name of the element',
+    cl: 'class name of the element',
+    placeholder: 'placeholder for elements',
+    opts: [     // on for select tag
+            {
+                text: 'option text',
+                value: 'option value'
+            },
+        ]
+}
+</pre></td>
+                                    </tr>
+                                    <tr>
+                                        <td><em>rowLimit</em></td>
+                                        <td>Infinity</td>
+                                        <td>Define limit of row in a form. Value should not be less than 0.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><em>subRowLimit</em></td>
+                                        <td>Infinity</td>
+                                        <td>Define limit of element row. Value should not be less than 1.</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <p>Follow me on <a class="user-mention" href="https://twitter.com/yoku_2010">Twitter</a>,<a class="user-mention" href="https://github.com/yoku2010">GitHub</a>,<a class="user-mention" href="http://www.linkedin.com/pub/yogesh-kumar/22/1b0/997">LinkedIn</a> or <a class="user-mention" href="http://www.facebook.com/yoku2010">Facebook</a></p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

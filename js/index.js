@@ -52,6 +52,7 @@ $(document).ready(function() {
 				placeholder: 'Value'
 			}
     	],
-    	rowLimit: 2
+    	rowLimit: 2,
+    	subRowLimit:4
     });
 });

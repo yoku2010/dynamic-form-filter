@@ -2,10 +2,10 @@
 /**
  * @description: To add elements dynamically.
  * @dependency: jquery1.11.x, bootstrap
- * @verion: 0.1
- * @date: 29-Mar-2014
+ * @verion: 0.1.1
+ * @date: 01-Apr-2015
  */
- 
+
 (function($) {
 	$.fn.extend({
 		filterForm: function(options) {
@@ -16,7 +16,8 @@
 				noElemMsg: 'No element details.',
 				enableRowLevelAddition: true,
 				rowElems: [],
-				rowLimit: Infinity
+				rowLimit: Infinity,
+				subRowLimit: Infinity
 			},options);
 			this.each(function() {
 				new $.filterAddForm(this, options);
@@ -62,6 +63,9 @@
 						ff.func.createHelpMsg().appendTo(ff.obj.$me);
 					}
 					opt.rowLimit || ff.func.enableDisableAddBtn(false);
+					if (opt.subRowLimit < 2) {
+					    opt.enableRowLevelAddition = false;
+					}
 				},
 				createButton: function () {
 					var $div = $('<div></div>').addClass(ff.cl.head);
@@ -122,10 +126,10 @@
 					}
 					return $elem;
 				},
-				createElementRow: function (elems, rowNum) {
+				createElementRow: function (elems, $row) {
 					var $sDiv = $('<div></div>').addClass(ff.cl.rowSDiv).hide(), $addRemoveBtn = $('<a></a>').attr('href', '#').click(function (e) {
 						ff.evnt.addRemoveElementRow(this, e);
-					}), i = 0, ln = elems.length;
+					}), i = 0, ln = elems.length, rowNum = $row.data('row_num');
 
 					if (0 === ln) {
 						$('<p></p>').addClass(ff.cl.noElemMsg).text(opt.noElemMsg).appendTo($sDiv);
@@ -136,17 +140,19 @@
 							ff.func.createElem(elems[i], rowNum).appendTo($sDiv);
 						}
 						opt.enableRowLevelAddition && $addRemoveBtn.appendTo($sDiv);
+						$row.data('row_count', $row.data('row_count') + 1);
 					}
+					$sDiv.appendTo($row);
 					return $sDiv;
 				},
 				createRow: function (elems) {
-					var $div = $('<div></div>').addClass(ff.cl.rowDiv).hide(), $close = $('<a></a>').addClass(ff.cl.closeBtn).attr('href', '#').click(function (e) {
+					var $div = $('<div></div>').data('row_count', 0).addClass(ff.cl.rowDiv).hide(), $close = $('<a></a>').addClass(ff.cl.closeBtn).attr('href', '#').click(function (e) {
 						ff.evnt.removeRow(this, e);
 					});
 					$('<span></span>').addClass(ff.cl.close).appendTo($close);
 					$close.appendTo($div);
 					$('<input/>').attr({'type':'hidden', 'name': 'row_num'}).val(ff.vr.rowNum).appendTo($div.data('row_num', ff.vr.rowNum));
-					ff.func.createElementRow(elems, ff.vr.rowNum).appendTo($div).show();
+					ff.func.createElementRow(elems, $div).show();
 					ff.vr.rowNum++;
 					++ff.vr.totalRow == opt.rowLimit && ff.func.enableDisableAddBtn(false);
 					return $div;
@@ -173,16 +179,26 @@
 					else if ($span.hasClass(ff.cl.add)) {
 						$span.removeClass(ff.cl.add).addClass(ff.cl.remove);
 						ff.evnt.addElementRow($me);
-					} 
+					}
 				},
 				removeElementRow: function ($me) {
-					$me.parent().slideUp(500, function () {
+    				var $div = $me.parents('.' + ff.cl.rowDiv), $row = $me.parent(), rowCount = $div.data('row_count') - 1;
+    				$div.data('row_count', rowCount);
+					$row.slideUp(500, function () {
 						$(this).remove();
+						if (rowCount < opt.subRowLimit) {
+						    $div.find('div.' + ff.cl.rowSDiv + ':last>a>span').addClass(ff.cl.add).removeClass(ff.cl.remove);
+						}
 					});
 				},
 				addElementRow: function ($me) {
-					var $div = $me.parents('.' + ff.cl.rowDiv);
-					ff.func.createElementRow(opt.rowElems, $div.data('row_num')).appendTo($div).slideDown(500);
+					var $div = $me.parents('.' + ff.cl.rowDiv),
+					    $row = ff.func.createElementRow(opt.rowElems, $div).slideDown(500),
+					    rowCount = $div.data('row_count');
+					
+					if (rowCount >= opt.subRowLimit) {
+					    $row.find('a>span').removeClass(ff.cl.add).addClass(ff.cl.remove);
+					}
 				}
 			}
 		};
