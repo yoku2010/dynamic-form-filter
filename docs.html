@@ -136,6 +136,7 @@ $('#form_filter').filterForm({
     helpMsg: 'Click on "Add Filter" to add elements in row.',
     noElemMsg: 'No element details.',
     enableRowLevelAddition: true,
+    arrayInput: true,
     rowElems: [[
             {
                 tag: 'input',
@@ -238,6 +239,11 @@ $('#form_filter').filterForm({
                                         <td><em>enableRowLevelAddition</em></td>
                                         <td>true</td>
                                         <td>true value allows row level form element addition.</td>
+                                    </tr>
+                                    <tr>
+                                        <td><em>arrayInput</em></td>
+                                        <td>true</td>
+                                        <td>true value appends <em>'[]'</em> in element's name.</td>
                                     </tr>
                                     <tr>
                                         <td><em>rowElems</em></td>

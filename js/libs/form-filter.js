@@ -15,6 +15,7 @@
 				helpMsg: 'Click on "Add Filter" to add elements in row.',
 				noElemMsg: 'No element details.',
 				enableRowLevelAddition: true,
+				arrayInput: true,
 				rowElems: [],
 				rowLimit: Infinity,
 				subRowLimit: Infinity
@@ -96,7 +97,7 @@
 							$elem = $('<label></label>').addClass(ff.cl.tag).text(elemProp.placeholder);
 							$input = $(ff.elem[elemProp.tag]);
 							elemProp.type && $input.attr('type', elemProp.type);
-							elemProp.name && $input.attr('name', elemProp.name + '_' + rowNum);
+							elemProp.name && $input.attr('name', elemProp.name + '_' + rowNum + (opt.arrayInput ? '[]':''));
 							elemProp.cl && $input.addClass(elemProp.cl);
 							$input.appendTo($elem);
 						}
@@ -104,7 +105,7 @@
 							$elem = $(ff.elem[elemProp.tag]).addClass(ff.cl.tag);
 						}
 						elemProp.type && $elem.attr('type', elemProp.type);
-						elemProp.name && $elem.attr('name', elemProp.name + '_' + rowNum);
+						elemProp.name && $elem.attr('name', elemProp.name + '_' + rowNum + (opt.arrayInput ? '[]':''));
 						elemProp.cl && $elem.addClass(elemProp.cl);
 						elemProp.placeholder && $elem.attr('placeholder', elemProp.placeholder);
 					}
@@ -115,12 +116,12 @@
 								$('<option></option>').text(elemProp.opts[i].text).val(elemProp.opts[i].value).appendTo($elem);
 							}
 						}
-						elemProp.name && $elem.attr('name', elemProp.name + '_' + rowNum);
+						elemProp.name && $elem.attr('name', elemProp.name + '_' + rowNum + (opt.arrayInput ? '[]':''));
 						elemProp.cl && $elem.addClass(elemProp.cl);
 					}
 					else {
 						$elem = $(ff.elem[elemProp.tag]).addClass(ff.cl.tag);
-						elemProp.name && $elem.attr('name', elemProp.name + '_' + rowNum);
+						elemProp.name && $elem.attr('name', elemProp.name + '_' + rowNum + (opt.arrayInput ? '[]':''));
 						elemProp.cl && $elem.addClass(elemProp.cl);
 						elemProp.placeholder && $elem.attr('placeholder', elemProp.placeholder);
 					}
@@ -195,7 +196,7 @@
 					var $div = $me.parents('.' + ff.cl.rowDiv),
 					    $row = ff.func.createElementRow(opt.rowElems, $div).slideDown(500),
 					    rowCount = $div.data('row_count');
-					
+
 					if (rowCount >= opt.subRowLimit) {
 					    $row.find('a>span').removeClass(ff.cl.add).addClass(ff.cl.remove);
 					}
